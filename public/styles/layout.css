@@ -32,3 +32,9 @@ body {
 
   --header-background: #d89722;
  }
+
+ main {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto; /*no vertical margin, just horizontal.*/
+ }
