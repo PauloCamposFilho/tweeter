@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -48,11 +49,19 @@
   </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices dui sapien eget mi proin sed. Semper auctor neque vitae tempus quam. Enim nulla aliquet porttitor lacus luctus. Eros in cursus turpis massa tincidunt. Risus pretium quam vulputate dignissim. Tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Donec enim diam vulputate ut pharetra sit amet aliquam id. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Quis viverra nibh cras pulvinar mattis nunc sed blandit. Aliquam etiam erat velit scelerisque in dictum non consectetur. Gravida dictum fusce ut placerat orci nulla pellentesque dignissim.
-        Libero volutpat sed cras ornare. Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. Pharetra magna ac placerat vestibulum lectus mauris ultrices. Odio morbi quis commodo odio. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis. Dolor morbi non arcu risus quis varius. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse. Nec feugiat in fermentum posuere urna nec tincidunt. Id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Congue eu consequat ac felis donec. Montes nascetur ridiculus mus mauris. Iaculis nunc sed augue lacus viverra vitae.        
-        Risus viverra adipiscing at in tellus integer feugiat scelerisque varius. Sem nulla pharetra diam sit amet. Magna etiam tempor orci eu lobortis elementum. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Gravida neque convallis a cras semper auctor neque vitae tempus. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna. Eu facilisis sed odio morbi quis commodo. Tempor orci eu lobortis elementum nibh tellus molestie. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Justo nec ultrices dui sapien eget. Ultrices in iaculis nunc sed augue lacus viverra vitae congue. Faucibus vitae aliquet nec ullamcorper sit amet risus. Proin nibh nisl condimentum id venenatis. Viverra nam libero justo laoreet sit amet cursus. Erat velit scelerisque in dictum. Purus viverra accumsan in nisl nisi.
-      </p>
+      <section class="new-tweet">
+        <!-- <h2>Compose Tweet</h2> -->
+        <div class="form-wrapper">
+          <form method="POST" action="/tweets">
+            <!-- <label for="tweet-text">What are you humming about?</label> -->
+            <input type="text" name="text" id="tweet-text" placeholder="What are you humming about?"></input>
+            <div class="tweet-text-info">
+              <button id="tweet-send" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>        
+        </div>
+      </section>            
     </main>
   </body>
 </html>

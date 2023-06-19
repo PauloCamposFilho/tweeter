@@ -1,0 +1,33 @@
+div.form-wrapper {
+  max-width: 700px;
+  margin: 60px auto 0 auto;
+}
+
+input#tweet-text {    
+  width: 100%;
+  font-weight: 600;
+  background-color: unset;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  margin-bottom: 10px;
+}
+
+input#tweet-text:focus-visible {  
+  outline: none;
+}
+
+.tweet-text-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+#tweet-send {
+  background-color: var(--navbar-background);  
+  font-family: var(--logo-font-family);
+  color: var(--logo-color);
+}
+
+output.counter {
+  font-family: var(--counter-font-family);
+}

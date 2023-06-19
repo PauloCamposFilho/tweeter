@@ -15,10 +15,10 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: var(--default-text-color);
+  background-color: var(--default-background-color);
   font-size: 24px;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: var(--default-text-family);
 }
 
 /*
@@ -29,8 +29,13 @@ body {
   --navbar-new-tweet: #ef3c1f;
   --navbar-background: #4056A1;
   --navbar-text: #FFFFFF;
-
-  --header-background: #d89722;
+  --header-background: #198a7b;
+  --logo-font-family: 'Bungee', sans-serif;
+  --logo-color: #FFFFFF;
+  --counter-font-family: 'Bungee', sans-serif;
+  --default-text-family: 'Source Sans 3', sans-serif;
+  --default-text-color: #545149;
+  --default-background-color: #f4f1ec;  
  }
 
  main {

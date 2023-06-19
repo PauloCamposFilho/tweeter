@@ -4,6 +4,5 @@ header {
   justify-content: center;
   align-items: center;
   background-color: var(--header-background);
-  background-color: #198a7b;
   background-image: url("../images/asfalt-light.png");
 }
