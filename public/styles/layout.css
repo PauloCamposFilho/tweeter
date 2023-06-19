@@ -21,10 +21,12 @@ body {
   font-family: 'Source Sans 3', sans-serif;
 }
 
-nav span {
-  font-family: 'Bungee', sans-serif;
-}
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ :root {
+  --header-new-tweet: #ef3c1f;
+  --header-background: #4056A1;
+  --header-text: #FFFFFF;
+ }

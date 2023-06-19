@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+  height: 120px;
+  width: 100vw;
+  /*background-color: #4056A1;*/
+  background-color: var(--header-background);
+  color: var(--header-text);
+}
+
+nav span.logo {
+  font-family: 'Bungee', sans-serif;  
+}
+nav .new-tweet {
+  text-align: center;
+}
+nav .new-tweet i {
+  color: var(--header-new-tweet);
+}
