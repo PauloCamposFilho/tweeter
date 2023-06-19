@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  height: 520px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--header-background);
+  background-color: #198a7b;
+  background-image: url("../images/asfalt-light.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
