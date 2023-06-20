@@ -53,10 +53,10 @@
         <div class="form-wrapper">
           <form method="POST" action="/tweets">
             <!-- <label for="tweet-text">What are you humming about?</label> -->
-            <input type="text" name="text" id="tweet-text" placeholder="What are you humming about?"></input>
+            <input type="text" name="text" id="tweet-text" placeholder="What are you humming about?" maxlength="140"></input>
             <div class="tweet-text-info">
               <button id="tweet-send" type="submit">Tweet</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
+              <output id="tweet-counter" name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>        
         </div>
