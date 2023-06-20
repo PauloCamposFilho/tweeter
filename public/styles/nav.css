@@ -18,4 +18,5 @@ nav .new-tweet {
 }
 nav .new-tweet i {
   color: var(--navbar-new-tweet);
+  display: block;
 }
