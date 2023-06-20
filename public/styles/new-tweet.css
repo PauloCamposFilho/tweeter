@@ -19,6 +19,10 @@ textarea#tweet-text:focus-visible {
   outline: none;
 }
 
+form#form-new-tweet {
+  text-align: left;
+}
+
 .tweet-text-info {
   display: flex;
   justify-content: space-between;
