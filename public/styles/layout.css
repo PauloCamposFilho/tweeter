@@ -37,12 +37,57 @@ body {
   --default-text-family: 'Source Sans 3', sans-serif;
   --default-text-color: #545149;
   --default-background-color: #f4f1ec;
+  --default-line-color: #555149;
   --tweet-disabled-background-color: #747474;
   --tweet-disabled-counter-color: #8f0101;
+  --tweet-action-icon-color-hover: #CA9824;
  }
 
  main {
-  width: 90%;
+  width: 90vw;
   text-align: center;
   margin: 0 auto; /*no vertical margin, just horizontal.*/
+ }
+
+ div.tweet {
+  max-width: 60vw;
+  margin: 60px auto 0 auto;
+ }
+
+ div.tweet article {
+  text-align: left;
+  padding: 20px;
+  border: 3px solid var(--default-line-color);
+ }
+
+ div.tweet header, div.tweet footer {
+  display: flex;
+  justify-content: space-between;
+ }
+
+ div.tweet article .avatar-info {
+  min-width: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+ }
+
+ div.tweet article .avatar-info-username {
+  display: flex;
+  align-items: center;
+ }
+
+ div.tweet article:hover {
+  -webkit-box-shadow: 5px 5px 10px 2px rgba(85,81,73,0.78);
+  box-shadow: 5px 5px 10px 2px rgba(85,81,73,0.78);
+ }
+
+ div.tweet article .tweet-content {
+  border-bottom: 4px solid var(--default-line-color);
+  padding-bottom: 20px;
+  margin: 30px auto 5px auto;
+ }
+
+ div.tweet .tweet-action-icon i:hover {
+  color: var(--tweet-action-icon-color-hover);
  }
