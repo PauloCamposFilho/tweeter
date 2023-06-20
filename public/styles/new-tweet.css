@@ -3,7 +3,7 @@ div.form-wrapper {
   margin: 60px auto 0 auto;
 }
 
-input#tweet-text {    
+textarea#tweet-text {    
   width: 100%;
   font-weight: 600;
   background-color: unset;
@@ -11,9 +11,11 @@ input#tweet-text {
   border-left: 0;
   border-right: 0;
   margin-bottom: 10px;
+  overflow: hidden;
+  resize: none;
 }
 
-input#tweet-text:focus-visible {  
+textarea#tweet-text:focus-visible {  
   outline: none;
 }
 
