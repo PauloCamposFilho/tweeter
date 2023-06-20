@@ -36,7 +36,9 @@ body {
   --counter-font-family: 'Bungee', sans-serif;
   --default-text-family: 'Source Sans 3', sans-serif;
   --default-text-color: #545149;
-  --default-background-color: #f4f1ec;  
+  --default-background-color: #f4f1ec;
+  --tweet-disabled-background-color: #747474;
+  --tweet-disabled-counter-color: #8f0101;
  }
 
  main {

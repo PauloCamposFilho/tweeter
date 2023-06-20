@@ -28,6 +28,13 @@ input#tweet-text:focus-visible {
   color: var(--logo-color);
 }
 
+#tweet-send.disabled {
+  background-color: var(--tweet-disabled-background-color);
+}
+
 output.counter {
   font-family: var(--counter-font-family);
+}
+output.counter.overflow {
+  color: var(--tweet-disabled-counter-color);
 }

@@ -26,6 +26,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -53,7 +54,7 @@
         <div class="form-wrapper">
           <form method="POST" action="/tweets">
             <!-- <label for="tweet-text">What are you humming about?</label> -->
-            <input type="text" name="text" id="tweet-text" placeholder="What are you humming about?" maxlength="140"></input>
+            <input type="text" name="text" id="tweet-text" placeholder="What are you humming about?" data-maxlength="140"></input>
             <div class="tweet-text-info">
               <button id="tweet-send" type="submit">Tweet</button>
               <output id="tweet-counter" name="counter" class="counter" for="tweet-text">140</output>
