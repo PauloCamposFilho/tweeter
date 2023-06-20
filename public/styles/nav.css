@@ -11,7 +11,6 @@ nav {
 }
 
 nav span.logo {
-  /* font-family: 'Bungee', sans-serif; */
   font-family: var(--logo-font-family);
 }
 nav .new-tweet {

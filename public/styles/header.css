@@ -1,8 +1,17 @@
 header {
   display: flex;
-  height: 520px;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 500px;
   background-color: var(--header-background);
-  background-image: url("../images/asfalt-light.png");
+  background-image: url(../images/asfalt-light.png);
+}
+
+header div:first-child {
+  max-height: 256px;
+}
+
+header div h2 {
+  color: var(--header-text-color);
 }
