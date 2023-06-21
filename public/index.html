@@ -54,7 +54,7 @@
         <div class="form-wrapper">
           <form id="form-new-tweet" method="POST" action="/tweets">
             <label for="tweet-text">What are you humming about?</label>
-            <textarea type="text" rows="1" name="text" id="tweet-text" placeholder="..." data-maxlength="140"></textarea>
+            <textarea type="text" rows="1" name="text" id="tweet-text" placeholder="..." data-maxlength="140" maxlength="500"></textarea>
             <div class="tweet-text-info">
               <button id="tweet-send" type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
