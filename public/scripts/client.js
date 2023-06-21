@@ -15,7 +15,14 @@ $(document).ready(() => {
         renderTweets(response, ".tweets");
       }
     });
-  }
+  };
+
+  // use this function to escape user input and prevent cross-site scripting attacks.
+  const escapeInput = (input) => {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(input));
+    return div.innerHTML;
+  };
 
   // add eventHandler to tweet submission form.
   $tweetForm.submit((event) => {
@@ -45,19 +52,19 @@ $(document).ready(() => {
     <article>
     <header>
       <div class="avatar-info">
-        <img src="${tweetObj.user.avatars}" alt="avatar">
-        <span>${tweetObj.user.name}</span>
+        <img src="${escapeInput(tweetObj.user.avatars)}" alt="avatar">
+        <span>${escapeInput(tweetObj.user.name)}</span>
       </div>
       <div class="avatar-info-username">
-        <span>${tweetObj.user.handle}</span>
+        <span>${escapeInput(tweetObj.user.handle)}</span>
       </div>
     </header>
     <div class="tweet-content">
-      <span>${tweetObj.content.text}</span>
+      <span>${escapeInput(tweetObj.content.text)}</span>
     </div>
     <footer>
       <div>
-        <span>${timeago.format(tweetObj.created_at)}</span>
+        <span>${timeago.format(escapeInput(tweetObj.created_at))}</span>
       </div>
       <div class="tweet-action-icon">
         <i class="fa-solid fa-retweet"></i>
