@@ -31,10 +31,37 @@ $(document).ready(() => {
     }
   ];
 
+  const fetchMyTimeline = () => {
+    $.ajax({
+      url: "http://localhost:8080/tweets",
+      method: "GET",
+      success: (response) => {
+        renderTweets(response, ".tweets");
+      }
+    });
+  }
+
+  const $tweetForm = $("#form-new-tweet");
+  $tweetForm.submit((event) => {
+    event.preventDefault(); // stop default form submission.
+    const tweetText = $tweetForm.find("#tweet-text").val();
+    $.ajax({
+      url: "http://localhost:8080/tweets",
+      method: "POST",
+      data: $tweetForm.serialize(),
+      success: (response) => {
+        console.log("Success!", response);
+        $tweetForm.find("#tweet-text").val("");
+      },
+    });
+  });
+
   const getFormattedTweetTimeDifference = (timestamp) => {
-    const _timestamp = timestamp / 1000;
-    const now = new Date().getTime() / 1000;
-    const difference = now - _timestamp;
+    const _timestamp = timestamp;
+    const now = new Date().getTime();
+    const difference = (now - _timestamp);
+
+    console.log("difference", difference);
 
     const seconds = Math.floor(difference / 1000);
     const minutes = Math.floor(seconds / 60);
@@ -50,6 +77,7 @@ $(document).ready(() => {
 
   // receives an object with tweet related data and returns a jQuery html object.
   const createTweetElement = (tweetObj) => {
+    console.log("obj:", tweetObj);
     const $tweet = $(`
     <article>
     <header>
@@ -79,12 +107,15 @@ $(document).ready(() => {
   return $tweet;
   };
 
+  // renders the htmlString from an array of tweets and appends it to the passed in selector.
   const renderTweets = (tweets, selector) => {
+    // empty the tweet container, as to not generate doubles.
+    $(selector).empty();
+    // re-order the tweets to have the latest ones on top.
+    tweets.sort((a,b) => b.created_at - a.created_at);
     for (const tweet of tweets) {
       $(selector).append(createTweetElement(tweet));
     }
   };
-
-  renderTweets(data, ".tweets");
-
+  fetchMyTimeline();
 });
