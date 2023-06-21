@@ -53,6 +53,7 @@ $(document).ready(() => {
         console.log("Success!", response);
         $tweetForm.find("#tweet-text").val("");
       },
+      complete: fetchMyTimeline
     });
   });
 
@@ -73,6 +74,7 @@ $(document).ready(() => {
     if (hours > 0) return `${hours}h`;
     if (minutes > 0) return `${minutes}m`;
     if (seconds > 0) return `${seconds}s`;
+    return "just now";
   };
 
   // receives an object with tweet related data and returns a jQuery html object.
