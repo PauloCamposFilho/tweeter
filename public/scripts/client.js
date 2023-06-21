@@ -5,8 +5,8 @@
  */
 
 $(document).ready(() => {
-  const $tweetForm = $("#form-new-tweet");  
-  
+  const $tweetForm = $("#form-new-tweet");
+
   const loadTweets = () => {
     $.ajax({
       url: "http://localhost:8080/tweets",
@@ -16,25 +16,31 @@ $(document).ready(() => {
       }
     });
   }
-  // add eventHandler to tweet submission form.  
+
+  // add eventHandler to tweet submission form.
   $tweetForm.submit((event) => {
-    event.preventDefault(); 
     const tweetText = $tweetForm.find("#tweet-text").val();
+    const maxLength = $tweetForm.find("#tweet-text").data("maxlength");
+    event.preventDefault();
+    if (!tweetText) {
+      return alert("The tweet cannot be empty.");
+    }
+    if (tweetText.length > maxLength) {
+      return alert("Tweet exceeds maximum length of 140 characters");
+    }
     $.ajax({
       url: "http://localhost:8080/tweets",
       method: "POST",
       data: $tweetForm.serialize(),
       success: (response) => {
-        console.log("Success!", response);
         $tweetForm.find("#tweet-text").val("");
       },
       complete: loadTweets
     });
-  });  
+  });
 
   // receives an object with tweet related data and returns a jQuery html object.
   const createTweetElement = (tweetObj) => {
-    console.log("obj:", tweetObj);
     const $tweet = $(`
     <article>
     <header>

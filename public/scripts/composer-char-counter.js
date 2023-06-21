@@ -21,13 +21,13 @@ $(document).ready(function() {
 
     // add css error/overflow classes if tweet is too long.
     if (currentLength > maxLength) {
-      sendTweetBtn.addClass("disabled").prop("disabled", true);
+      // sendTweetBtn.addClass("disabled").prop("disabled", true);
       $counter.addClass("overflow");
       return;
     }
 
     // remove css error/overflow classes if tweet is fine.
-    sendTweetBtn.removeClass("disabled").prop("disabled", false);
+    // sendTweetBtn.removeClass("disabled").prop("disabled", false);
     $counter.removeClass("overflow");
   });
 });
