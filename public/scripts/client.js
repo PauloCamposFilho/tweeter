@@ -5,33 +5,9 @@
  */
 
 $(document).ready(() => {
-  // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
-
-  const fetchMyTimeline = () => {
+  const $tweetForm = $("#form-new-tweet");  
+  
+  const loadTweets = () => {
     $.ajax({
       url: "http://localhost:8080/tweets",
       method: "GET",
@@ -40,10 +16,9 @@ $(document).ready(() => {
       }
     });
   }
-
-  const $tweetForm = $("#form-new-tweet");
+  // add eventHandler to tweet submission form.  
   $tweetForm.submit((event) => {
-    event.preventDefault(); // stop default form submission.
+    event.preventDefault(); 
     const tweetText = $tweetForm.find("#tweet-text").val();
     $.ajax({
       url: "http://localhost:8080/tweets",
@@ -53,29 +28,9 @@ $(document).ready(() => {
         console.log("Success!", response);
         $tweetForm.find("#tweet-text").val("");
       },
-      complete: fetchMyTimeline
+      complete: loadTweets
     });
-  });
-
-  const getFormattedTweetTimeDifference = (timestamp) => {
-    const _timestamp = timestamp;
-    const now = new Date().getTime();
-    const difference = (now - _timestamp);
-
-    console.log("difference", difference);
-
-    const seconds = Math.floor(difference / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-
-    // return only the most relevant relative date. (Day => Hour => Minutes => Second)
-    if (days > 0) return `${days}d`;
-    if (hours > 0) return `${hours}h`;
-    if (minutes > 0) return `${minutes}m`;
-    if (seconds > 0) return `${seconds}s`;
-    return "just now";
-  };
+  });  
 
   // receives an object with tweet related data and returns a jQuery html object.
   const createTweetElement = (tweetObj) => {
@@ -96,7 +51,7 @@ $(document).ready(() => {
     </div>
     <footer>
       <div>
-        <span>${getFormattedTweetTimeDifference(tweetObj.created_at)}</span>
+        <span>${timeago.format(tweetObj.created_at)}</span>
       </div>
       <div class="tweet-action-icon">
         <i class="fa-solid fa-retweet"></i>
@@ -119,5 +74,5 @@ $(document).ready(() => {
       $(selector).append(createTweetElement(tweet));
     }
   };
-  fetchMyTimeline();
+  loadTweets();
 });
