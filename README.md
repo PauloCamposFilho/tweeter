@@ -6,7 +6,7 @@ This repository is a student's effort in implementing the missing functionality 
 
 ## Final Product
 
-!["Screenshot of the page"](https://github.com/PauloCamposFilho/tweeter/blob/master/docs/urls-index.png)
+!["Screenshot of the page"](https://github.com/PauloCamposFilho/tweeter/blob/master/docs/tweeter-home.png)
 
 ## Dependencies
 
