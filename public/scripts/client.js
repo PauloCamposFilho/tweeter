@@ -16,24 +16,26 @@ $(document).ready(() => {
       }
     });
   };
-
-  // use this function to escape user input and prevent cross-site scripting attacks.
-  const escapeInput = (input) => {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(input));
-    return div.innerHTML;
-  };
-
+  
   // add eventHandler to tweet submission form.
   $tweetForm.submit((event) => {
     const tweetText = $tweetForm.find("#tweet-text").val();
     const maxLength = $tweetForm.find("#tweet-text").data("maxlength");
+    const $error_container = $(".error-message-validation");
+    // if error is being shown, hide the div until a new error brings it back.
+    if ($error_container.is(":visible")) {
+      $error_container.fadeOut();
+    }
     event.preventDefault();
     if (!tweetText) {
-      return alert("The tweet cannot be empty.");
+      $(".error-text").text("Tweet cannot be empty");
+      $error_container.slideDown();
+      return;      
     }
     if (tweetText.length > maxLength) {
-      return alert("Tweet exceeds maximum length of 140 characters");
+      $(".error-text").text(`Tweet exceeds maximum length of ${maxLength} characters.`);
+      $error_container.slideDown();
+      return;    
     }
     $.ajax({
       url: "http://localhost:8080/tweets",
@@ -41,6 +43,8 @@ $(document).ready(() => {
       data: $tweetForm.serialize(),
       success: (response) => {
         $tweetForm.find("#tweet-text").val("");
+        // function from helpers.js to update the height of the textarea.
+        updateTextareaHeight($tweetForm.find("#tweet-text"));
       },
       complete: loadTweets
     });

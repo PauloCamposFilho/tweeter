@@ -1,0 +1,12 @@
+.error-message-validation {
+  max-width: 20vw;
+  margin: 20px auto;
+  border: 2px solid var(--default-error-color);
+  border-radius: 15px;
+  display: none; /*initial state*/
+}
+
+.error-message-validation .error-text {
+  color: var(--default-error-color);
+}
+

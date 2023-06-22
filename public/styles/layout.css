@@ -38,6 +38,7 @@ body {
   --default-text-color: #545149;
   --default-background-color: #f4f1ec;
   --default-line-color: #555149;
+  --default-error-color: #8f0101;
   --tweet-disabled-background-color: #747474;
   --tweet-disabled-counter-color: #8f0101;
   --tweet-action-icon-color-hover: #CA9824;

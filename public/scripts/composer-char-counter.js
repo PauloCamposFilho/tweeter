@@ -2,12 +2,7 @@ $(document).ready(function() {
   // get input field for tweet.
   const inputField = $("#tweet-text");
   // get send tweet button
-  const sendTweetBtn = $("#tweet-send");
-
-  const updateTextareaHeight = ($textarea) => {
-    $textarea.css("height", "auto");
-    $textarea.css("height", $textarea.prop("scrollHeight") + "px");
-  }
+  const sendTweetBtn = $("#tweet-send");  
 
   inputField.on("input", function() {
     const $field = $(this);
