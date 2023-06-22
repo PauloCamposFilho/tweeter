@@ -2,12 +2,17 @@
   CSS for the new tweet container and its elements.
 */
 
-div.form-wrapper {
+/* div.form-wrapper {
   max-width: 700px;
   margin: 60px auto 0 auto;
+} */
+
+div.form-wrapper {
+  max-width: 60vw;
+  margin: 0 auto 50px auto;
 }
 
-textarea#tweet-text {    
+textarea#tweet-text {
   width: 100%;
   font-weight: 600;
   background-color: unset;
@@ -19,7 +24,7 @@ textarea#tweet-text {
   resize: none;
 }
 
-textarea#tweet-text:focus-visible {  
+textarea#tweet-text:focus-visible {
   outline: none;
 }
 
@@ -33,7 +38,7 @@ form#form-new-tweet {
 }
 
 #tweet-send {
-  background-color: var(--navbar-background);  
+  background-color: var(--navbar-background);
   font-family: var(--logo-font-family);
   color: var(--logo-color);
 }

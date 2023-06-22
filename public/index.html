@@ -43,33 +43,35 @@
         </span>
       </div>
     </nav>
-    <header class="nav">
-      <div>
-          <img src="/images/profile-hex.png">
-      </div>
-      <div>
-          <h2>Paulo</h2>
-      </div>
-  </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <div class="error-message-validation hidden">
-        <span class="error-text"></span>
-      </div>
-      <section class="new-tweet hidden">
-        <div class="form-wrapper">
-          <form id="form-new-tweet" method="POST" action="/tweets">
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea type="text" rows="1" name="text" id="tweet-text" placeholder="..." data-maxlength="140" maxlength="500"></textarea>
-            <div class="tweet-text-info">
-              <button id="tweet-send" type="submit">Tweet</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
-            </div>
-          </form>
+    <div class="content-wrapper">
+      <header class="nav">
+        <div>
+            <img src="/images/profile-hex.png">
         </div>
-      </section>
-      <div class="tweets"></div>
-    </main>
+        <div>
+            <h2>Paulo</h2>
+        </div>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <div class="error-message-validation hidden">
+          <span class="error-text"></span>
+        </div>
+        <section class="new-tweet hidden">
+          <div class="form-wrapper">
+            <form id="form-new-tweet" method="POST" action="/tweets">
+              <label for="tweet-text">What are you humming about?</label>
+              <textarea type="text" rows="1" name="text" id="tweet-text" placeholder="..." data-maxlength="140" maxlength="500"></textarea>
+              <div class="tweet-text-info">
+                <button id="tweet-send" type="submit">Tweet</button>
+                <output name="counter" class="counter" for="tweet-text">140</output>
+              </div>
+            </form>
+          </div>
+        </section>
+        <div class="tweets"></div>
+      </main>
+    </div>
     <button id="scroll-to-top"><i class="fa-solid fa-angles-up"></i></button>
   </body>
 </html>

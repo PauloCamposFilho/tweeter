@@ -47,7 +47,31 @@ body {
  }
 
  main {
-  width: 90vw;
+  width: 90%;
   text-align: center;
-  margin: 0 auto; /*no vertical margin, just horizontal.*/
- } 
+  max-width: 1000px;
+ }
+
+ div.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 270px 60px 0px 60px;
+}
+
+ header.nav {
+  min-width: 25%;
+ }
+
+ @media only screen and (max-width: 1024px) {
+  div.content-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: unset;
+    padding: 120px 0px 0px 0px;
+  }
+  main.container {
+    width: 100%;
+    padding-top: 50px
+  }
+ }

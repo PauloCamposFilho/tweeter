@@ -4,7 +4,7 @@
 
 div.tweets {
   max-width: 60vw;
-  margin: 60px auto 0 auto;
+  margin: 0 auto 0 auto;
  }
 
  div.tweets article {
@@ -40,6 +40,7 @@ div.tweets {
   border-bottom: 4px solid var(--default-line-color);
   padding-bottom: 20px;
   margin: 30px auto 5px auto;
+  overflow-wrap: break-word;
  }
 
  div.tweets .tweet-action-icon i:hover {
