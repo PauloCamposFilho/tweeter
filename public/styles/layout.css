@@ -27,6 +27,7 @@ body {
 
  :root {
   --navbar-new-tweet: #ef3c1f;
+  --navbar-new-tweet-hover: #057e64;
   --navbar-background: #4056A1;
   --navbar-text: #FFFFFF;
   --header-background: #198a7b;
@@ -92,4 +93,8 @@ body {
 
  div.tweets .tweet-action-icon i:hover {
   color: var(--tweet-action-icon-color-hover);
+ }
+
+ section.new-tweet {
+  display: none;
  }

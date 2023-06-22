@@ -6,6 +6,7 @@
 
 $(document).ready(() => {
   const $tweetForm = $("#form-new-tweet");
+  const $newTweetIcon = $("nav .new-tweet i")
 
   const loadTweets = () => {
     $.ajax({
@@ -16,7 +17,10 @@ $(document).ready(() => {
       }
     });
   };
-  
+
+  $newTweetIcon.on("click", () => {
+    $("section.new-tweet").slideToggle();
+  })
   // add eventHandler to tweet submission form.
   $tweetForm.submit((event) => {
     const tweetText = $tweetForm.find("#tweet-text").val();

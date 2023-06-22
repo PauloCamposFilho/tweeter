@@ -20,3 +20,7 @@ nav .new-tweet i {
   color: var(--navbar-new-tweet);
   display: block;
 }
+nav .new-tweet i:hover {
+  color: var(--navbar-new-tweet-hover);
+  cursor: grab;
+}
