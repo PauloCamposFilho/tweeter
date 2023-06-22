@@ -1,3 +1,7 @@
+/*
+  CSS For the <nav> element
+*/
+
 nav {
   display: flex;
   position: fixed;

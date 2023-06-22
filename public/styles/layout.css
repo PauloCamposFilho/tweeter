@@ -43,6 +43,7 @@ body {
   --tweet-disabled-background-color: #747474;
   --tweet-disabled-counter-color: #8f0101;
   --tweet-action-icon-color-hover: #CA9824;
+  --tweet-hover-shadowbox-color: rgba(85,81,73,0.78);
  }
 
  main {

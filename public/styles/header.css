@@ -1,3 +1,6 @@
+/*
+    CSS for the user profile <header> element.
+*/
 header.nav {
   display: flex;
   align-items: center;
