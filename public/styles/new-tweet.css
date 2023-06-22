@@ -44,3 +44,7 @@ output.counter {
 output.counter.overflow {
   color: var(--tweet-disabled-counter-color);
 }
+
+section.new-tweet {
+  display: none;
+ }

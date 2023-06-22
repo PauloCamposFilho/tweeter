@@ -1,0 +1,44 @@
+div.tweets {
+  max-width: 60vw;
+  margin: 60px auto 0 auto;
+ }
+
+ div.tweets article {
+  text-align: left;
+  padding: 20px;
+  border: 3px solid var(--default-line-color);
+  margin-bottom: 10px;
+ }
+
+ div.tweets header, div.tweets footer {
+  display: flex;
+  justify-content: space-between;
+ }
+
+ div.tweets article .avatar-info {
+  min-width: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+ }
+
+ div.tweets article .avatar-info-username {
+  display: flex;
+  align-items: center;
+ }
+
+ div.tweets article:hover {
+  -webkit-box-shadow: 5px 5px 10px 2px rgba(85,81,73,0.78);
+  box-shadow: 5px 5px 10px 2px rgba(85,81,73,0.78);
+ }
+
+ div.tweets article .tweet-content {
+  border-bottom: 4px solid var(--default-line-color);
+  padding-bottom: 20px;
+  margin: 30px auto 5px auto;
+ }
+
+ div.tweets .tweet-action-icon i:hover {
+  color: var(--tweet-action-icon-color-hover);
+  cursor: pointer;
+ }
