@@ -13,14 +13,30 @@ nav {
 nav span.logo {
   font-family: var(--logo-font-family);
 }
+
 nav .new-tweet {
   text-align: center;
 }
+
 nav .new-tweet i {
   color: var(--navbar-new-tweet);
   display: block;
 }
+
 nav .new-tweet i:hover {
   color: var(--navbar-new-tweet-hover);
   cursor: grab;
+}
+
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border-radius: 25px;
+  border-color: var(--navbar-background);
+  padding-top: 5px;
+  color: var(--navbar-background);
+  cursor: pointer;
 }
