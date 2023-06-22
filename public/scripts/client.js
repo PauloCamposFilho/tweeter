@@ -57,20 +57,17 @@ $(document).ready(() => {
     event.preventDefault();
     const tweetText = $tweetForm.find("#tweet-text").val();
     const maxLength = $tweetForm.find("#tweet-text").data("maxlength");
-    const $errorContainer = $(".error-message-validation");
-    const $errorContainerSpan = $(".error-text");
+    const $errorContainer = $(".error-message-validation");    
     // if error is being shown, hide the div until a new error brings it back.
     if ($errorContainer.is(":visible")) {
-      $errorContainer.slideUp();
+      hideErrorMessage();
     }
     if (!tweetText) {
-      $errorContainerSpan.text("Tweet cannot be empty");
-      $errorContainer.slideDown();
+      showErrorMessage("Tweet cannot be empty.");
       return;
     }
     if (tweetText.length > maxLength) {
-      $errorContainerSpan.text(`Tweet exceeds maximum length of ${maxLength} characters.`);
-      $errorContainer.slideDown();
+      showErrorMessage(`Tweet exceeds maximum length of ${maxLength} characters.`);
       return;
     }
     // no validation errors. post the tweet.

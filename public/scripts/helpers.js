@@ -1,5 +1,5 @@
 // this function takes a textarea and updates its height based on whats currently in the input.
-// use it in conjunction with an 'input' eventHandler
+// used in conjunction with an 'input' eventHandler
 const updateTextareaHeight = ($textarea) => {
   $textarea.css("height", "auto");
   $textarea.css("height", $textarea.prop("scrollHeight") + "px");
@@ -47,12 +47,26 @@ const createTweetElement = (tweetObj) => {
 const renderTweets = (tweets, selector) => {
   // empty the tweet container, as to not generate doubles.
   $(selector).empty();
-  // re-order the tweets to have the latest ones on top.
-  tweets.sort((a,b) => b.created_at - a.created_at);
   for (const tweet of tweets) {
     $(selector).append(createTweetElement(tweet));
   }
 };
+
+// shows error message -- used after tweet validation
+const showErrorMessage = (errorText) => {
+  const $errorContainer = $(".error-message-validation");
+  const $errorContainerSpan = $(".error-text");
+  $errorContainerSpan.text(errorText);
+  $errorContainer.slideDown(700);
+}
+
+// hides error message -- used before tweet validation
+const hideErrorMessage = () => {
+  const $errorContainer = $(".error-message-validation");
+  const $errorContainerSpan = $(".error-text");
+  $errorContainerSpan.text("");
+  $errorContainer.slideUp(150);
+}
 
 // fetches tweets from the server and calls the renderTweets to display them.
 const loadTweets = () => {
@@ -60,6 +74,8 @@ const loadTweets = () => {
     url: "http://localhost:8080/tweets",
     method: "GET",
     success: (response) => {
+      // order tweets by descending date (latest ones on top)
+      response.sort((a,b) => b.created_at - a.created_at);
       renderTweets(response, ".tweets");
     }
   });
