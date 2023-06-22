@@ -59,11 +59,7 @@ $(document).ready(() => {
     event.preventDefault();
     const tweetText = $tweetForm.find("#tweet-text").val();
     const maxLength = $tweetForm.find("#tweet-text").data("maxlength");
-    const $errorContainer = $(".error-message-validation");    
-    // if error is being shown, hide the div until a new error brings it back.
-    if ($errorContainer.is(":visible")) {
-      hideErrorMessage();
-    }
+    const $errorContainer = $(".error-message-validation");
     if (!tweetText) {
       showErrorMessage("Tweet cannot be empty.");
       return;

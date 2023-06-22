@@ -53,14 +53,22 @@ const renderTweets = (tweets, selector) => {
 };
 
 // shows error message -- used after tweet validation
+// const showErrorMessage = (errorText) => {
+//   const $errorContainer = $(".error-message-validation");
+//   const $errorContainerSpan = $(".error-text");
+//   $errorContainerSpan.text(errorText);
+//   $errorContainer.slideDown(700);
+// }
 const showErrorMessage = (errorText) => {
-  const $errorContainer = $(".error-message-validation");
-  const $errorContainerSpan = $(".error-text");
-  $errorContainerSpan.text(errorText);
-  $errorContainer.slideDown(700);
-}
+  const headerText = "tweeter";
+  bootbox.alert({
+    title: headerText,
+    message: errorText,
+    centerVertical: true
+  });
+};
 
-// hides error message -- used before tweet validation
+// hides error message -- used before tweet validation -- DEPRECATED.
 const hideErrorMessage = () => {
   const $errorContainer = $(".error-message-validation");
   const $errorContainerSpan = $(".error-text");

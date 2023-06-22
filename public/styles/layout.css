@@ -40,6 +40,7 @@ body {
   --default-background-color: #f4f1ec;
   --default-line-color: #555149;
   --default-error-color: #8f0101;
+  --default-error-button-border-color: #475da3;
   --tweet-disabled-background-color: #747474;
   --tweet-disabled-counter-color: #8f0101;
   --tweet-action-icon-color-hover: #CA9824;
