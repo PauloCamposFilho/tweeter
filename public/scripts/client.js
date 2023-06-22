@@ -16,6 +16,8 @@ $(document).ready(() => {
   const $tweetFormTextarea = $tweetForm.find("textarea");
   // the icon in the header to compose a new tweet.
   const $newTweetIcon = $("nav .new-tweet i");
+  // the scroll to top button
+  const $scrollToTop = $("#scroll-to-top");
 
 
   // the scroll to top button
@@ -23,16 +25,16 @@ $(document).ready(() => {
   // if so, show a back to top button. Otherwise, fade it out (in case they scrolled back up)
   $(window).scroll(function() {
     if ($(this).scrollTop() > 200) {
-      $("#scroll-to-top").fadeIn();
+      $scrollToTop.fadeIn();
     } else {
-      $("#scroll-to-top").fadeOut();
+      $scrollToTop.fadeOut();
     }
   });
 
   // add an eventHandler to the scroll to top button being clicked
   // smooth scroll to top of page using jquery .animate method.
   // and then show the compose tweet box, with focus --> always does this.
-  $("#scroll-to-top").click((event) => {
+  $scrollToTop.click((event) => {
     event.preventDefault();
     $("html").animate({scrollTop : 0}, {
       duration: 500,
