@@ -1,8 +1,8 @@
 // Developer notes
-// helper functions are found in helpers.js, such as updateTextareaHeight
+// helper functions are found in ./helpers.js such as updateTextareaHeight
 
 $(document).ready(function() {
-  // get input field for tweet.
+  // get input field for tweet (textarea).
   const inputField = $("#tweet-text");
 
   // add eventHandler to input on the textarea.
@@ -18,12 +18,10 @@ $(document).ready(function() {
 
     // add css error/overflow classes if tweet is too long.
     if (currentLength > maxLength) {
-      // sendTweetBtn.addClass("disabled").prop("disabled", true);
       $counter.addClass("overflow");
       return;
     }
     // remove css error/overflow classes if tweet is fine.
-    // sendTweetBtn.removeClass("disabled").prop("disabled", false);
     $counter.removeClass("overflow");
   });
 });

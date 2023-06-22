@@ -31,6 +31,7 @@ $(document).ready(() => {
 
   // add an eventHandler to the scroll to top button being clicked
   // smooth scroll to top of page using jquery .animate method.
+  // and then show the compose tweet box, with focus --> always does this.
   $("#scroll-to-top").click((event) => {
     event.preventDefault();
     $("html").animate({scrollTop : 0}, {
@@ -72,6 +73,7 @@ $(document).ready(() => {
       $errorContainer.slideDown();
       return;
     }
+    // no validation errors. post the tweet.
     $.ajax({
       url: "http://localhost:8080/tweets",
       method: "POST",
@@ -82,6 +84,8 @@ $(document).ready(() => {
         $tweetFormTextarea.val("");
         $tweetFormTextarea.trigger('input');
       },
+      // always refreshes tweets regardless of success/error. Intended funcionality in case
+      // we had multiple users posting, in which case there might've been a new tweet to show.
       complete: loadTweets
     });
   });
