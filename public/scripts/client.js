@@ -43,7 +43,7 @@ $(document).ready(() => {
     const $error_container = $(".error-message-validation");
     // if error is being shown, hide the div until a new error brings it back.
     if ($error_container.is(":visible")) {
-      $error_container.fadeOut();
+      $error_container.slideUp();
     }
     event.preventDefault();
     if (!tweetText) {
