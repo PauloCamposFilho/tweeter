@@ -93,6 +93,7 @@ body {
 
  div.tweets .tweet-action-icon i:hover {
   color: var(--tweet-action-icon-color-hover);
+  cursor: pointer;
  }
 
  section.new-tweet {
