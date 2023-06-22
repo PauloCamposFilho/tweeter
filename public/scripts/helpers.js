@@ -3,7 +3,7 @@
 const updateTextareaHeight = ($textarea) => {
   $textarea.css("height", "auto");
   $textarea.css("height", $textarea.prop("scrollHeight") + "px");
-}
+};
 
 // use this function to escape user input and prevent cross-site scripting attacks.
 const escapeInput = (input) => {
@@ -40,7 +40,7 @@ const createTweetElement = (tweetObj) => {
   </footer>
 </article>
   `);
-return $tweet;
+  return $tweet;
 };
 
 // renders the htmlString from an array of tweets and appends it to the passed in selector.

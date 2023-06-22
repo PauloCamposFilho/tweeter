@@ -8,52 +8,68 @@
 // helper functions can be found on ./helpers.js
 
 $(document).ready(() => {
+  // the <section> element that contains the new tweet form
+  const $newTweetSection = $("section.new-tweet");
+  // the <form> element where a new tweet is written
   const $tweetForm = $("#form-new-tweet");
-  const $newTweetIcon = $("nav .new-tweet i")
-  
+  // the <textarea> element where the text for the new tweet is input.
+  const $tweetFormTextarea = $tweetForm.find("textarea");
+  // the icon in the header to compose a new tweet.
+  const $newTweetIcon = $("nav .new-tweet i");
+
+
+  // the scroll to top button
   // on window scroll, check if user has rolled at least 200 pixels down
-  // if so, show a back to top button. Otherwise, fade it out.
+  // if so, show a back to top button. Otherwise, fade it out (in case they scrolled back up)
   $(window).scroll(function() {
     if ($(this).scrollTop() > 200) {
-      $('#scroll-to-top').fadeIn();
+      $("#scroll-to-top").fadeIn();
     } else {
-      $('#scroll-to-top').fadeOut();
+      $("#scroll-to-top").fadeOut();
     }
   });
 
-  // smooth scroll to top of page.
-  $('#scroll-to-top').click((event) => {
+  // add an eventHandler to the scroll to top button being clicked
+  // smooth scroll to top of page using jquery .animate method.
+  $("#scroll-to-top").click((event) => {
     event.preventDefault();
-    $('html, body').animate({scrollTop : 0}, {
+    $("html").animate({scrollTop : 0}, {
       duration: 500,
       complete: () => {
-        $("section.new-tweet").slideDown(); // always shows in this case.
+        $newTweetSection.slideDown(); // always shows in this case.
+        $tweetFormTextarea.focus();   // and always focus.
       }
     });
   });
 
 
-  $newTweetIcon.on("click", () => {    
-    $("section.new-tweet").slideToggle();
-  })
+  // add eventHandler to clicking on the compose tweet icon on the header.
+  $newTweetIcon.on("click", () => {
+    $newTweetSection.slideToggle();
+    if ($newTweetSection.is(":visible")) {
+      $tweetFormTextarea.focus();
+    }
+  });
+
   // add eventHandler to tweet submission form.
   $tweetForm.submit((event) => {
+    event.preventDefault();
     const tweetText = $tweetForm.find("#tweet-text").val();
     const maxLength = $tweetForm.find("#tweet-text").data("maxlength");
-    const $error_container = $(".error-message-validation");
+    const $errorContainer = $(".error-message-validation");
+    const $errorContainerSpan = $(".error-text");
     // if error is being shown, hide the div until a new error brings it back.
-    if ($error_container.is(":visible")) {
-      $error_container.slideUp();
+    if ($errorContainer.is(":visible")) {
+      $errorContainer.slideUp();
     }
-    event.preventDefault();
     if (!tweetText) {
-      $(".error-text").text("Tweet cannot be empty");
-      $error_container.slideDown();
+      $errorContainerSpan.text("Tweet cannot be empty");
+      $errorContainer.slideDown();
       return;
     }
     if (tweetText.length > maxLength) {
-      $(".error-text").text(`Tweet exceeds maximum length of ${maxLength} characters.`);
-      $error_container.slideDown();
+      $errorContainerSpan.text(`Tweet exceeds maximum length of ${maxLength} characters.`);
+      $errorContainer.slideDown();
       return;
     }
     $.ajax({
@@ -61,12 +77,13 @@ $(document).ready(() => {
       method: "POST",
       data: $tweetForm.serialize(),
       success: (response) => {
-        $tweetForm.find("#tweet-text").val("");
-        // function from helpers.js to update the height of the textarea.
-        updateTextareaHeight($tweetForm.find("#tweet-text"));
+        // clear the textarea input and trigger the input event to update
+        // the counter as well as the element height in case it was multiline.
+        $tweetFormTextarea.val("");
+        $tweetFormTextarea.trigger('input');
       },
       complete: loadTweets
     });
-  });    
+  });
   loadTweets();
 });

@@ -1,9 +1,11 @@
+// Developer notes
+// helper functions are found in helpers.js, such as updateTextareaHeight
+
 $(document).ready(function() {
   // get input field for tweet.
   const inputField = $("#tweet-text");
-  // get send tweet button
-  const sendTweetBtn = $("#tweet-send");  
 
+  // add eventHandler to input on the textarea.
   inputField.on("input", function() {
     const $field = $(this);
     const currentLength = $field.val().length;
@@ -20,7 +22,6 @@ $(document).ready(function() {
       $counter.addClass("overflow");
       return;
     }
-
     // remove css error/overflow classes if tweet is fine.
     // sendTweetBtn.removeClass("disabled").prop("disabled", false);
     $counter.removeClass("overflow");
