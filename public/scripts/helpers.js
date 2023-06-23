@@ -1,4 +1,7 @@
 // this function takes a textarea and updates its height based on whats currently in the input.
+
+const { response } = require("express");
+
 // used in conjunction with an 'input' eventHandler
 const updateTextareaHeight = ($textarea) => {
   $textarea.css("height", "auto");
@@ -52,13 +55,6 @@ const renderTweets = (tweets, selector) => {
   }
 };
 
-// shows error message -- used after tweet validation
-// const showErrorMessage = (errorText) => {
-//   const $errorContainer = $(".error-message-validation");
-//   const $errorContainerSpan = $(".error-text");
-//   $errorContainerSpan.text(errorText);
-//   $errorContainer.slideDown(700);
-// }
 const showErrorMessage = (errorText) => {
   const headerText = "tweeter";
   bootbox.alert({
@@ -67,14 +63,6 @@ const showErrorMessage = (errorText) => {
     centerVertical: true
   });
 };
-
-// hides error message -- used before tweet validation -- DEPRECATED.
-const hideErrorMessage = () => {
-  const $errorContainer = $(".error-message-validation");
-  const $errorContainerSpan = $(".error-text");
-  $errorContainerSpan.text("");
-  $errorContainer.slideUp(150);
-}
 
 // fetches tweets from the server and calls the renderTweets to display them.
 const loadTweets = () => {
@@ -85,6 +73,10 @@ const loadTweets = () => {
       // order tweets by descending date (latest ones on top)
       response.sort((a,b) => b.created_at - a.created_at);
       renderTweets(response, ".tweets");
+    },
+    // if server returns an error, show it.
+    error: (response) => {
+      showErrorMessage(response.message);
     }
   });
 };

@@ -79,6 +79,10 @@ $(document).ready(() => {
         $tweetFormTextarea.val("");
         $tweetFormTextarea.trigger('input');
       },
+      // if server returns an error, show it.
+      error: (error) => {
+        showErrorMessage(error.message);
+      },
       // always refreshes tweets regardless of success/error. Intended funcionality in case
       // we had multiple users posting, in which case there might've been a new tweet to show.
       complete: loadTweets

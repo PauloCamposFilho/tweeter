@@ -6,8 +6,7 @@ header.nav {
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  height: 390px;
-  /*height: 500px*/
+  height: 400px;
   background-color: var(--header-background);
   background-image: url(../images/asfalt-light.png);
 }
