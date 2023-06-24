@@ -1,7 +1,4 @@
 // this function takes a textarea and updates its height based on whats currently in the input.
-
-const { response } = require("express");
-
 // used in conjunction with an 'input' eventHandler
 const updateTextareaHeight = ($textarea) => {
   $textarea.css("height", "auto");
